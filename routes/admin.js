@@ -1,5 +1,6 @@
 import express from 'express';
-import { getUnverifiedTeachers, getUnverifiedTuitions, getVerifiedTeachers, getVerifiedTuitions, registerAdmin, verifyTeacher, verifyTuition } from '../controllers/adminController.js';
+import { getAllTeachers, getAllTuitions, getPendingTeachers, getPendingTuitions, registerAdmin, removeTeacher, removeTuition, verifyTeacher, verifyTuition } from '../controllers/adminController.js';
+import { isAdmin } from '../middlewares/auth.js';
 
 const router = express.Router();
 
@@ -8,12 +9,14 @@ const router = express.Router();
 
 router.post('/:uid', registerAdmin);
 
-router.get('/getVerifiedTeachers',  getVerifiedTeachers);
-router.get('/getUnverifiedTeachers',  getUnverifiedTeachers);
+router.get('/getPendingTeachers/:uid',  getPendingTeachers);   
+router.get('/getAllTeachers',  getAllTeachers);
 router.put('/verifyTeacher',  verifyTeacher);
+router.delete('/removeTeacher',  removeTeacher);
 
-router.get('/getVerifiedTuitions', getVerifiedTuitions);
-router.get('/getUnverifiedTuitions', getUnverifiedTuitions);
+router.get('/getPendingTuitions/:uid', getPendingTuitions);
+router.get('/getAllTuitions', getAllTuitions);
 router.put('/verifyTuition', verifyTuition);
+router.delete('/removeTuition', removeTuition);
 
 export default router;

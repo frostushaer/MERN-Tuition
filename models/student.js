@@ -30,6 +30,16 @@ const studentSchema = new mongoose.Schema({
     parentPhone: {
         type: String, required: false,
     },
+    enrolledBatches: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Batch',
+        required: false,
+    }],
+    enrolledTuitions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Tuition',
+        required: false,
+    }],
 
 });
 

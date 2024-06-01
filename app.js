@@ -7,6 +7,8 @@ import userRoutes from './routes/user.js';
 import studentRoutes from './routes/student.js';
 import teacherRoutes from './routes/teacher.js';
 import adminRoutes from './routes/admin.js';
+import tuitionRoutes from './routes/tuition.js';
+import batchRoutes from './routes/batch.js';
 
 // to use .env file
 config();
@@ -27,6 +29,8 @@ app.use('/api/user', userRoutes);
 app.use('/api/student', studentRoutes);
 app.use('/api/teacher', teacherRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/tuition', tuitionRoutes);
+app.use('/api/batch', batchRoutes);
 
 // listen to the port
 app.listen(process.env.PORT, ()=> {

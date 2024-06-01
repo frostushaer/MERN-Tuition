@@ -28,15 +28,21 @@ const teacherSchema = new mongoose.Schema({
     subjects: [{
         type: String, required: true,
     }],
-    isVerified: {
-        type: Boolean, default: false,
-    },
     tuitionOwned: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tuition',
         required: false,
     }],
-
+    tuitionJoined: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Tuition',
+        required: false,
+    }],
+    batchAssigned: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Batch',
+        required: false,
+    }],
 });
 
 export const Teacher = mongoose.model('Teacher', teacherSchema);

@@ -1,5 +1,5 @@
 import express from 'express';
-import { registerStudent } from '../controllers/studentController.js';
+import { getAllTuitions, getEnrolledBatches, registerStudent, requestBatchJoin } from '../controllers/studentController.js';
 
 const router = express.Router();
 
@@ -8,5 +8,8 @@ const router = express.Router();
 
 // we will use authentication middleware in the future (but for now use /:uid)
 router.post('/:uid', registerStudent);
+router.get('/getAllTuitions', getAllTuitions);
+router.post('/requestBatchJoin/:uid', requestBatchJoin);
+router.get('/getEnrolledBatches/:uid', getEnrolledBatches);
 
 export default router;

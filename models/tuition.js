@@ -16,6 +16,11 @@ const tuitionSchema = new mongoose.Schema({
         ref: 'Student',
         required: false,
     }],
+    batches: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Batch',
+        required: false,
+    }],
     subjects: [{
         type: String, required: true,
     }],
@@ -43,9 +48,6 @@ const tuitionSchema = new mongoose.Schema({
     }],
     description: {
         type: String, required: false,
-    },
-    isVerified: {
-        type: Boolean, default: false,
     },
     fees: {
         type: Number, required: false,
